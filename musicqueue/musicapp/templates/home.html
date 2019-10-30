@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style type="text/css">
+.title {
+  			width: 100%;
+  			max-width: 854px;
+  			margin: 0 auto;
+  		}
+
+  		.caption {
+  			width: 100%;
+  			max-width: 854px;
+  			margin: 0 auto;
+  			padding: 20px 0;
+  		}
+
+  		.vid-main-wrapper {
+  			width: 100%;
+  			max-width: 1100px;
+  			min-width: 440px;
+  			background: #fff;
+  			margin: 0 auto;
+  		}
+
+
+  		/*  VIDEO PLAYER CONTAINER
+ 		############################### */
+  		.vid-container {
+		    position: relative;
+
+		    padding-top: 30px;
+		    height: 0;
+        width:70%;
+        float:left;
+		}
+
+		.vid-container iframe,
+		.vid-container object,
+		.vid-container embed {
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    min-height: 360px;
+		}
+
+
+		/*  VIDEOS PLAYLIST
+ 		############################### */
+		.vid-list-container {
+			width: 30%;
+      height:360px;
+			overflow: hidden;
+      float:right;
+		}
+
+    .vid-list-container:hover, .vid-list-container:focus {
+       overflow-y: auto;
+     }
+
+		ol#vid-list {
+      margin:0;
+      padding:0;
+      background: #222;
+		}
+
+    ol#vid-list li {
+		  list-style: none;
+    }
+
+    ol#vid-list li a {
+      text-decoration: none;
+      background-color: #222;
+      height:55px;
+      display:block;
+      padding:10px;
+    }
+
+    ol#vid-list li a:hover,
+    ol#vid-list li.selected a {
+      background-color:#666666
+    }
+
+		.vid-thumb {
+      float:left;
+			margin-right: 8px;
+		}
+
+    .active-vid {
+      background:#3A3A3A;
+    }
+
+		#vid-list .desc {
+			color: #CACACA;
+			font-size: 13px;
+			margin-top:5px;
+		}
+
+
+		@media (max-width: 624px) {
+			body {
+				margin: 15px;
+			}
+			.caption {
+				margin-top: 40px;
+			}
+			.vid-list-container {
+				padding-bottom: 20px;
+			}
+
+		}
+</style>
+
+
+
+
+</head>
+<body>
+
+<div class="vid-main-wrapper clearfix">
+
+  		    <!-- THE YOUTUBE PLAYER -->
+      <div class="vid-container">
+          <iframe id="vid_frame" width="560" height="315" src="https://www.youtube.com/embed/59EJJrOzTWw?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <!-- THE PLAYLIST -->
+      <div class="vid-list-container">
+            <ol id="vid-list">
+                {% for id in music_ids %}
+                  <li>
+                    <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/{{id}}?autoplay=1&rel=0&showinfo=0&autohide=1'">
+                      <span class="vid-thumb"><img width=72 src="https://img.youtube.com/vi/{{id}}/default.jpg" /></span>
+                      <div class="desc">New</div>
+                    </a>
+                  </li>
+                {% endfor %}
+
+              <li class="selected">
+                <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/cOSEOYi9JS4?autoplay=1&rel=0&showinfo=0&autohide=1'">
+                  <span class="vid-thumb"><img width=72 src="https://img.youtube.com/vi/cOSEOYi9JS4/default.jpg" /></span>
+                  <div class="desc">WeatherBeater™ Product Video</div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/vYoh2IgoBXg?autoplay=1&rel=0&showinfo=0&autohide=1'">
+                  <span class="vid-thumb"><img width=72 src="https://img.youtube.com/vi/vYoh2IgoBXg/default.jpg" /></span>
+                  <div class="desc">Wheel Well Guards Product Video</div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/RTHI_uGyfTM?autoplay=1&rel=0&showinfo=0&autohide=1'">
+                  <span class="vid-thumb"><img width=72 src="https://img.youtube.com/vi/RTHI_uGyfTM/default.jpg" /></span>
+                  <div class="desc">Cargo Liner Product Video</div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/EvTjAjLNphE?autoplay=1&rel=0&showinfo=0&autohide=1'">
+                  <span class="vid-thumb"><img width=72 src="https://img.youtube.com/vi/EvTjAjLNphE/default.jpg" /></span>
+                  <div class="desc">Husky Liners Products</div>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/-Qpc79oaJQg?autoplay=1&rel=0&showinfo=0&autohide=1'">
+                  <span class="vid-thumb"><img width=72 src="https://img.youtube.com/vi/-Qpc79oaJQg/default.jpg" /></span>
+                  <div class="desc">Custom Molded Mud Guards</div>
+                </a>
+              </li>
+
+            </ul>
+       </div>
+</div>
+
+<div class="col-xs-12 col-md-12 col-sm-12 text-center" style="margin-top:20px;">
+    <input id="url_box" type="text" placeholder="Enter Youtube URL..." style="width: 50%;
+    height: 35px;">
+    <button id="addurlbtn">ADD</button>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+<script type="text/javascript">
+/*JS FOR SCROLLING THE ROW OF THUMBNAILS*/
+$(document).ready(function () {
+  $('.vid-item').each(function(index){
+    $(this).on('click', function(){
+      var current_index = index+1;
+      $('.vid-list li').removeClass('active');
+      $('.vid-list li:nth-child('+current_index+') .thumb').addClass('active');
+    });
+  });
+  var $list = $('#vid-list li');
+  $list.click(function(){
+    $list.removeClass('selected');
+    $(this).addClass('selected');
+  });
+
+
+
+$("#addurlbtn").click(function(e) {
+
+    var id = $('#url_box').val()
+    $('#vid-list').append('<li><a href="javascript:void();" onClick="document.getElementById("vid_frame").src="https://youtube.com/embed/'+id+'?autoplay=1&rel=0&showinfo=0&autohide=1"><span class="vid-thumb"><img width=72 src="https://img.youtube.com/vi/'+id+'/default.jpg" /></span><div class="desc">Mud Guards Product Video</div></a></li>')
+
+
+    e.preventDefault();
+    $.ajax({
+        type: "POST",
+        url: "/add",
+        data: {
+            music_id: id
+        },
+        success: function(result) {
+            alert('ok');
+        },
+        error: function(result) {
+            alert('error');
+        }
+    });
+});
+
+
+
+});
+</script>
+
+
+
+</body>
+</html>
